@@ -1,0 +1,15 @@
+.EducatorDashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.EducatorDashboard__section {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 450px) {
+  .EducatorDashboard {
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+}
