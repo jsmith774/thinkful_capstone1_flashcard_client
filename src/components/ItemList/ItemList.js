@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 import './ItemList.css';
 
 export default class ItemList extends Component {
+  //todo implement this for basic edit/delete funtionality?
+  handleButtonClick(itemId) {
+    return;
+  }
+
   renderSelectOptions(selectOptions) {
     //const selectOptions = this.props.items;
+    const displayProp = this.props.displayProp || 'name';
     return selectOptions.map((option) => (
       <option
         key={option.id}
         value={option.id}
         onClick={() => this.handleButtonClick(option.id)}
       >
-        {option.name}
+        {option[displayProp]}
       </option>
     ));
   }
