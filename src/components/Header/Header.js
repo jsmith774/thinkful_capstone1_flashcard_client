@@ -9,6 +9,7 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     window.localStorage.removeItem('userRole');
+    window.localStorage.removeItem('userId');
   };
 
   renderLogoutLink() {

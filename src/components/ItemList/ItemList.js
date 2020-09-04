@@ -21,12 +21,21 @@ export default class ItemList extends Component {
     ));
   }
 
+  renderTitleButton(buttonText) {
+    if (buttonText) {
+      return <button>{buttonText}</button>;
+    } else {
+      return '';
+    }
+  }
+
   render() {
-    const { name, items, id } = this.props;
+    const { name, items, id, buttonText } = this.props;
     return (
       <div className="ItemList__div" id={`ItemList_div_${id}`}>
         <label htmlFor={id} className="ItemList__label">
-          {name} &nbsp; <button> Add (+)</button>
+          {name} &nbsp; {this.renderTitleButton(buttonText)}
+          {/*<button> Add (+)</button>*/}
         </label>
         <select id={id} className="itemList" size="4">
           {this.renderSelectOptions(items)}

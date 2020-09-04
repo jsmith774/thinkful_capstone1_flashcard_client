@@ -1,0 +1,15 @@
+.StudentDashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.StudentDashboard__section {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 450px) {
+  .StudentDashboard {
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+}

@@ -71,7 +71,7 @@ export default class EducatorDashboard extends Component {
         </header>
         <hr />
         **************** end temp block*/}
-        <h2>EDUCATOR DASHBOARD CONTENT GOES HERE</h2>
+        <h2>Educator Dashboard</h2>
         <Section className="EducatorDashboard">
           <Section className="EducatorDashboard__section">
             <ItemList
@@ -79,6 +79,7 @@ export default class EducatorDashboard extends Component {
               items={this.state.cardList}
               displayProp={'card_prompt'}
               id="flashcards"
+              buttonText="Add (+)"
             />
           </Section>
           <Section className="EducatorDashboard__section">
@@ -87,6 +88,7 @@ export default class EducatorDashboard extends Component {
               items={this.state.deckList}
               displayProp={'deck_name'}
               id="decks"
+              buttonText="Add (+)"
             />
           </Section>
         </Section>
