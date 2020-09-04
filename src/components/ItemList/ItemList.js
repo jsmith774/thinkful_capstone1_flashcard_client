@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import './ItemList.css';
 
 export default class ItemList extends Component {
-  //todo implement this for basic edit/delete funtionality?
-  handleButtonClick(itemId) {
-    return;
-  }
+  // handleItemClick(itemId) {
+  //  implementation passed in as prop from using components EducatorDashboard and StudentDashboard
+  // }
 
   renderSelectOptions(selectOptions) {
     //const selectOptions = this.props.items;
@@ -14,7 +13,7 @@ export default class ItemList extends Component {
       <option
         key={option.id}
         value={option.id}
-        onClick={() => this.handleButtonClick(option.id)}
+        onClick={() => this.props.handleItemClick(option.id)}
       >
         {option[displayProp]}
       </option>

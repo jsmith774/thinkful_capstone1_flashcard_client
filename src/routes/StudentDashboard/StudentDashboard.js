@@ -22,6 +22,10 @@ export default class StudentDashboard extends Component {
     deckList: [],
   };
 
+  onItemClick = (itemId) => {
+    alert('ITEM CLICKED' + itemId);
+  };
+
   componentDidMount() {
     //this.context.clearError();
 
@@ -68,6 +72,7 @@ export default class StudentDashboard extends Component {
               items={this.state.deckList}
               displayProp={'deck_name'}
               id="decks"
+              handleItemClick={this.onItemClick}
             />
           </Section>
         </Section>

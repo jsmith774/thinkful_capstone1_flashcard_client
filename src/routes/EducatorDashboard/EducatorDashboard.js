@@ -29,6 +29,11 @@ export default class EducatorDashboard extends Component {
     // ],
   };
 
+  //todo implement this for basic edit/delete funtionality? or keep 'do nothing' impl?
+  onItemClick = (itemId) => {
+    return;
+  };
+
   componentDidMount() {
     //this.context.clearError();
 
@@ -80,6 +85,7 @@ export default class EducatorDashboard extends Component {
               displayProp={'card_prompt'}
               id="flashcards"
               buttonText="Add (+)"
+              handleItemClick={this.onItemClick}
             />
           </Section>
           <Section className="EducatorDashboard__section">
@@ -89,6 +95,7 @@ export default class EducatorDashboard extends Component {
               displayProp={'deck_name'}
               id="decks"
               buttonText="Add (+)"
+              handleItemClick={this.onItemClick}
             />
           </Section>
         </Section>
