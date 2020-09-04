@@ -30,10 +30,9 @@ export default class StudentDashboard extends Component {
   };
 
   onItemClick = (itemId) => {
-    alert('ITEM CLICKED ' + itemId);
     //todo load cards and start quiz
     const { history } = this.props;
-    history.push('/assessment'); //todo replace '/' test route with 'assessment' route
+    history.push(`/assessment/${itemId}`); //todo replace '/' test route with 'assessment' route
   };
 
   componentDidMount() {

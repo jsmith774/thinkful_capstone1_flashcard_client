@@ -3,6 +3,9 @@ import { Section } from '../../components/Utils/Utils';
 
 export default class Assessment extends Component {
   render() {
+    const deckId = this.props.match.params.deckId;
+    //todo verify logged in user has access to this deck
+    //todo load cards for deck
     return (
       <Section>
         {/* begin temp block to remove ***************
@@ -26,6 +29,7 @@ export default class Assessment extends Component {
             <p>This is the way we assess</p>
             <p>we assess</p>
             <p>This is the way we assess</p>
+            <h2>DECK ID: {deckId}</h2>
           </div>
         </Section>
       </Section>
