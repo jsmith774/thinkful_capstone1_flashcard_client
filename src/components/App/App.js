@@ -7,6 +7,7 @@ import LandingPage from '../../routes/LandingPage/LandingPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import EducatorDashboard from '../../routes/EducatorDashboard/EducatorDashboard';
 import StudentDashboard from '../../routes/StudentDashboard/StudentDashboard';
+import Assessment from '../../routes/Assessment/Assessment';
 
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 
@@ -44,6 +45,7 @@ class App extends Component {
               path={'/student-dashboard'}
               component={StudentDashboard}
             />
+            <PrivateRoute path={'/assessment'} component={Assessment} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

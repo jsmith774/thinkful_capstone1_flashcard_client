@@ -6,6 +6,13 @@ import ApiService from '../../services/api-service';
 import ItemList from '../../components/ItemList/ItemList';
 
 export default class StudentDashboard extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {},
+    },
+  };
+
   state = {
     cardList: [],
     //   cardList: [
@@ -23,7 +30,10 @@ export default class StudentDashboard extends Component {
   };
 
   onItemClick = (itemId) => {
-    alert('ITEM CLICKED' + itemId);
+    alert('ITEM CLICKED ' + itemId);
+    //todo load cards and start quiz
+    const { history } = this.props;
+    history.push('/assessment'); //todo replace '/' test route with 'assessment' route
   };
 
   componentDidMount() {
