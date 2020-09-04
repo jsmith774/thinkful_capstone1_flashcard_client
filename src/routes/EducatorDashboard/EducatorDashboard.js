@@ -22,22 +22,20 @@ export default class EducatorDashboard extends Component {
     //     // { id: 8, name: 'Card8' },
     //     // { id: 9, name: 'Card9' },
     //   ],
-    deckList: [
-      { id: 1, name: 'Deck1', sampleProp: 'D1_sample' },
-      { id: 2, name: 'Deck2', sampleProp: 'D2_sample' },
-      { id: 3, name: 'Deck3', sampleProp: 'D3_sample' },
-    ],
+    deckList: [],
+    //   { id: 1, name: 'Deck1', sampleProp: 'D1_sample' },
+    //   { id: 2, name: 'Deck2', sampleProp: 'D2_sample' },
+    //   { id: 3, name: 'Deck3', sampleProp: 'D3_sample' },
+    // ],
   };
 
   componentDidMount() {
     //this.context.clearError();
 
-    console.log('in EdDash.componentDidMount()');
     let cards = [];
     ApiService.getCards()
       .then((dbCards) => {
         cards = dbCards;
-        console.log('cards after API service getCards call:', cards);
         this.setState({ cardList: cards });
       })
       .catch(this.context.setError);
@@ -45,14 +43,20 @@ export default class EducatorDashboard extends Component {
     // ApiService.getCards()
     //   .then(this.context.setCards)
     //   .catch(this.context.setError);
+
+    let decks = [];
+    ApiService.getDecks()
+      .then((dbDecks) => {
+        decks = dbDecks;
+        this.setState({ deckList: decks });
+      })
+      .catch(this.context.setError);
   }
 
   render() {
     //const { cards, decks } = this.context;
     const cards = this.state.cardList;
     const decks = this.state.deckList;
-    console.log('Context CARDS:', cards);
-    console.log('Context DECKS:', decks);
 
     return (
       <Section>
@@ -81,6 +85,7 @@ export default class EducatorDashboard extends Component {
             <ItemList
               name="Manage Card Decks"
               items={this.state.deckList}
+              displayProp={'deck_name'}
               id="decks"
             />
           </Section>

@@ -9,13 +9,22 @@ const ApiService = {
       },
     }).then((res) => {
       //return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
-      console.log('In api-service getCards(db).then...');
       if (!res.ok) {
-        console.log('response not ok:', res);
         return res.json().then((e) => Promise.reject(e));
       }
+      return res.json();
+    });
+  },
 
-      console.log('respone is ok:', res);
+  getDecks(db) {
+    return fetch(`${config.API_ENDPOINT}/decks`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
       return res.json();
     });
   },
