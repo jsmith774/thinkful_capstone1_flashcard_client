@@ -35,9 +35,25 @@ const ApiService = {
   findDecksByUserId(userId) {
     return fetch(`${config.API_ENDPOINT}/decks?userid=${userId}`, {
       header: {
-        authoriziation: `bearer ${TokenService.getAuthToken()}`,
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
+      return res.json();
+    });
+  },
+
+  findCardsByDeckId(userId, deckId) {
+    return fetch(
+      `${config.API_ENDPOINT}/cards?userid=${userId}&deckid=${deckId}`,
+      {
+        header: {
+          authorization: `bearer ${TokenService.getAuthToken()}`,
+        },
+      }
+    ).then((res) => {
       if (!res.ok) {
         return res.json().then((e) => Promise.reject(e));
       }
