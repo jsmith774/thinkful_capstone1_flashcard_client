@@ -22,6 +22,7 @@ export default class Assessment extends Component {
     //Assessment Level State
     cardList: [],
     deckId: 0,
+    deckName: '',
     scoreCorrect: 0, //cardList.length = total # questions: score disply `{scoreCorrect} out of {cardList.length}`
     assessmentState: this.ASSESSMENT_STATE.NEW,
 
@@ -37,7 +38,7 @@ export default class Assessment extends Component {
     let cards = [];
     //let deckName = ''; //todo get deckname from db or better from all_decks context lookup
 
-    const deckId = this.props.match.params.deckId;
+    const { deckId, deckName } = this.props.match.params;
     ApiService.findCardsByDeckId(window.localStorage.getItem('userId'), deckId)
       .then((dbCards) => {
         cards = dbCards;
@@ -45,6 +46,7 @@ export default class Assessment extends Component {
         this.setState({
           cardList: cards,
           deckId: deckId,
+          deckName: deckName,
           assessmentState: this.ASSESSMENT_STATE.NEW,
         });
       })
@@ -59,6 +61,15 @@ export default class Assessment extends Component {
       assessmentState: this.ASSESSMENT_STATE.PROMPT_FACEDOWN,
       currentCard: 0,
       scoreCorrect: 0,
+    });
+  };
+
+  tryAgain = () => {
+    this.setState({
+      assessmentState: this.ASSESSMENT_STATE.NEW,
+      currentCard: 0,
+      scoreCorrect: 0,
+      //todo SHUFFLE (if deck type = random; otherwise order is fixed)
     });
   };
 
@@ -106,7 +117,7 @@ export default class Assessment extends Component {
       case this.ASSESSMENT_STATE.NEW:
         return (
           <div>
-            <h3>ASSESSMENT STATE = 'new'</h3>
+            <h3>Click button below when ready to begin...</h3>
             <button onClick={() => this.handleStartClick()}>Start</button>
           </div>
         );
@@ -134,10 +145,6 @@ export default class Assessment extends Component {
               submitAnswerHandler={this.assessAnswer}
               cardClickHandler={() => {}}
             />
-            <p>
-              *** Include "RIGHT" and "WRONG" self-assessment buttons and media
-              check playback
-            </p>
           </>
         );
 
@@ -148,7 +155,7 @@ export default class Assessment extends Component {
             You got {this.state.scoreCorrect} out of{' '}
             {this.state.cardList.length}
             <div>
-              <button>Try Again</button>
+              <button onClick={() => this.tryAgain()}>Try Again</button>
               <button>
                 <Link className="button-link" to="/student-dashboard">
                   Dashboard
@@ -187,7 +194,8 @@ export default class Assessment extends Component {
         </header>
         <hr />
         **************** end temp block*/}
-        <h2>Assessment</h2> {/* todo add Deck name to title? */}
+        <h2>Self-Assessment for Deck: {this.state.deckName}</h2>{' '}
+        {/* todo add Deck name to title? */}
         <Section className="Assessment">{this.renderStateView()}</Section>
       </Section>
     );

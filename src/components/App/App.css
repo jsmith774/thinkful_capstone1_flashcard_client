@@ -1,3 +1,7 @@
+body {
+  background-color: lightskyblue;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -114,7 +118,7 @@ footer {
 }
 
 footer {
-  background-color: black;
+  background-color: #0008ff;
   color: white;
 }
 
@@ -129,18 +133,10 @@ footer {
   text-decoration: none;
 }
 
-.button-link:link {
-}
-
 .button-link:visited {
   color: inherit;
 }
 
-.button-link:hover {
-}
-
-.button-link:active {
-}
 /*.App {
   text-align: center;
 }

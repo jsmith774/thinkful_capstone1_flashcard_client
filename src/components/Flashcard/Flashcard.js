@@ -69,7 +69,12 @@ export default class Flashcard extends Component {
         <>
           {cardDiv}
           <button onClick={() => this.props.submitAnswerHandler()}>
-            Submit
+            <span className="assessOpt">
+              Check Answer{' '}
+              <span role="img" aria-label="check mark">
+                ✔️
+              </span>
+            </span>
           </button>
         </>
       );

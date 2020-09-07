@@ -13,7 +13,9 @@ export default class ItemList extends Component {
       <option
         key={option.id}
         value={option.id}
-        onClick={() => this.props.handleItemClick(option.id)}
+        onClick={() =>
+          this.props.handleItemClick(option.id, option[displayProp])
+        }
       >
         {option[displayProp]}
       </option>

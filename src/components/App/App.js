@@ -45,7 +45,10 @@ class App extends Component {
               path={'/student-dashboard'}
               component={StudentDashboard}
             />
-            <PrivateRoute path={'/assessment/:deckId'} component={Assessment} />
+            <PrivateRoute
+              path={'/assessment/:deckId/:deckName'}
+              component={Assessment}
+            />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

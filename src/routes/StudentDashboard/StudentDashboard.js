@@ -29,10 +29,10 @@ export default class StudentDashboard extends Component {
     deckList: [],
   };
 
-  onItemClick = (itemId) => {
+  onItemClick = (itemId, itemName) => {
     //todo load cards and start quiz
     const { history } = this.props;
-    history.push(`/assessment/${itemId}`);
+    history.push(`/assessment/${itemId}/${itemName}`);
   };
 
   componentDidMount() {
