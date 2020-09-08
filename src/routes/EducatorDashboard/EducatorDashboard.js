@@ -9,6 +9,13 @@ import './EducatorDashboard.css';
 export default class EducatorDashboard extends Component {
   static contextType = AppContext;
 
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {},
+    },
+  };
+
   state = {
     cardList: [],
     //   cardList: [
@@ -34,9 +41,14 @@ export default class EducatorDashboard extends Component {
     return;
   };
 
+  handleAddDeckClick = () => {
+    //todo load cards and start quiz
+    const { history } = this.props;
+    history.push(`/add-deck`);
+  };
+
   componentDidMount() {
     //this.context.clearError();
-
     let cards = [];
     ApiService.getCards()
       .then((dbCards) => {
@@ -73,7 +85,10 @@ export default class EducatorDashboard extends Component {
         <hr />
         **************** end temp block*/}
         <h2>Educator Dashboard</h2>
+
         <Section className="EducatorDashboard">
+          {/*
+        todo LEAVE THIS OUT UNTIL CARD ADD FUNCTIONALITY IS ADDED
           <Section className="EducatorDashboard__section">
             <ItemList
               name="Manage Flashcards"
@@ -81,9 +96,11 @@ export default class EducatorDashboard extends Component {
               displayProp={'card_prompt'}
               id="flashcards"
               buttonText="Add (+)"
+              buttonAction={this.handleAddCardClick}
               handleItemClick={this.onItemClick}
             />
-          </Section>
+            </Section>
+        */}
           <Section className="EducatorDashboard__section">
             <ItemList
               name="Manage Card Decks"
@@ -91,6 +108,7 @@ export default class EducatorDashboard extends Component {
               displayProp={'deck_name'}
               id="decks"
               buttonText="Add (+)"
+              buttonAction={this.handleAddDeckClick}
               handleItemClick={this.onItemClick}
             />
           </Section>

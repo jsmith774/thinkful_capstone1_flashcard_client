@@ -6,6 +6,14 @@ export default class ItemList extends Component {
   //  implementation passed in as prop from using components EducatorDashboard and StudentDashboard
   // }
 
+  static defaultProps = {
+    selectOptions: [],
+    location: {},
+    history: {
+      push: () => {},
+    },
+  };
+
   renderSelectOptions(selectOptions) {
     //const selectOptions = this.props.items;
     const displayProp = this.props.displayProp || 'name';
@@ -22,23 +30,28 @@ export default class ItemList extends Component {
     ));
   }
 
-  renderTitleButton(buttonText) {
+  renderTitleButton(buttonText, buttonAction) {
     if (buttonText) {
-      return <button>{buttonText}</button>;
+      return <button onClick={() => buttonAction()}>{buttonText}</button>;
     } else {
       return '';
     }
   }
 
   render() {
-    const { name, items, id, buttonText } = this.props;
+    const { name, items, id, buttonText, buttonAction } = this.props;
     return (
       <div className="ItemList__div" id={`ItemList_div_${id}`}>
         <label htmlFor={id} className="ItemList__label">
-          {name} &nbsp; {this.renderTitleButton(buttonText)}
-          {/*<button> Add (+)</button>*/}
+          {name} &nbsp; {this.renderTitleButton(buttonText, buttonAction)}
         </label>
-        <select id={id} className="itemList" size="4">
+        <select
+          id={id}
+          className="itemList"
+          size="4"
+          multiple
+          onChange={(ev) => this.props.handleSelectOnChange(ev)}
+        >
           {this.renderSelectOptions(items)}
         </select>
       </div>

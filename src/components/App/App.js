@@ -8,6 +8,7 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import EducatorDashboard from '../../routes/EducatorDashboard/EducatorDashboard';
 import StudentDashboard from '../../routes/StudentDashboard/StudentDashboard';
 import Assessment from '../../routes/Assessment/Assessment';
+import AddDeckPage from '../../routes/AddDeckPage/AddDeckPage';
 
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 
@@ -49,6 +50,7 @@ class App extends Component {
               path={'/assessment/:deckId/:deckName'}
               component={Assessment}
             />
+            <PrivateRoute path={'/add-deck'} component={AddDeckPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>
