@@ -59,10 +59,6 @@ export default class EducatorDashboard extends Component {
   }
 
   render() {
-    //const { cards, decks } = this.context;
-    const cards = this.state.cardList;
-    const decks = this.state.deckList;
-
     return (
       <Section>
         {/* begin temp block to remove ***************

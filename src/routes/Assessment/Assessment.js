@@ -118,7 +118,14 @@ export default class Assessment extends Component {
         return (
           <div>
             <h3>Click button below when ready to begin...</h3>
-            <button onClick={() => this.handleStartClick()}>Start</button>
+            <button onClick={() => this.handleStartClick()}>
+              <span className="assessOpt">
+                Start{' '}
+                <span role="img" aria-label="green circle start icon">
+                  🟢
+                </span>
+              </span>
+            </button>
           </div>
         );
 
@@ -155,10 +162,22 @@ export default class Assessment extends Component {
             You got {this.state.scoreCorrect} out of{' '}
             {this.state.cardList.length}
             <div>
-              <button onClick={() => this.tryAgain()}>Try Again</button>
+              <button onClick={() => this.tryAgain()}>
+                <span className="assessOpt">
+                  Try Again{' '}
+                  <span role="img" aria-label="try again looping arrows icon">
+                    🔄
+                  </span>
+                </span>
+              </button>
               <button>
                 <Link className="button-link" to="/student-dashboard">
-                  Dashboard
+                  <span className="assessOpt">
+                    Dashboard{' '}
+                    <span role="img" aria-label="back to dashboard arrow icon">
+                      🔙
+                    </span>
+                  </span>
                 </Link>
               </button>
             </div>
@@ -177,8 +196,6 @@ export default class Assessment extends Component {
   }
 
   render() {
-    const deckId = this.props.match.params.deckId;
-
     //todo verify logged in user has access to this deck
     //todo load cards for deck
     return (

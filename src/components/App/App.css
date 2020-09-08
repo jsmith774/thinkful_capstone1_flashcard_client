@@ -137,6 +137,11 @@ footer {
   color: inherit;
 }
 
+.assessOpt {
+  font-weight: 900;
+  font-size: 2em;
+}
+
 /*.App {
   text-align: center;
 }

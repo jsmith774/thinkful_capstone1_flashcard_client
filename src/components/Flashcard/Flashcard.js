@@ -44,7 +44,7 @@ export default class Flashcard extends Component {
                 >
                   <span className="assessOpt">
                     YES{' '}
-                    <span role="img" aria-label="happy face">
+                    <span role="img" aria-label="happy face icon">
                       😀
                     </span>
                   </span>
@@ -55,7 +55,7 @@ export default class Flashcard extends Component {
                 >
                   <span className="assessOpt">
                     NO{' '}
-                    <span role="img" aria-label="sad face">
+                    <span role="img" aria-label="sad face icon">
                       😢
                     </span>
                   </span>
@@ -71,7 +71,7 @@ export default class Flashcard extends Component {
           <button onClick={() => this.props.submitAnswerHandler()}>
             <span className="assessOpt">
               Check Answer{' '}
-              <span role="img" aria-label="check mark">
+              <span role="img" aria-label="check mark icon">
                 ✔️
               </span>
             </span>
