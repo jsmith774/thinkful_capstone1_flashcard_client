@@ -68,9 +68,31 @@ export default class NewDeckForm extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    // this.setState({ error: null });
-    // const { user_name, password } = ev.target;
+    this.setState({ error: null });
+    const { deck_name_input } = ev.target;
 
+    // todo post addDeck - get deckId
+    // todo use deckId to add cards
+    // todo use deckId to give students access
+
+    ApiService.postDeck({
+      deckName: deck_name_input.value,
+    })
+      .then((res) => {
+        const { deck_id, deck_name } = res.json;
+        console.log(
+          'IN postDec().then: deckName',
+          deck_name,
+          'deckId',
+          deck_id
+        );
+        //ApiService.addCardsToDeck(deck_id, this.state.deckCardIdList);
+        //ApiService.addStudentsToDeck(deck_id, this.state.deckStudentIdList);
+        //
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
     // AuthApiService.postLogin({
     //   user_name: user_name.value,
     //   password: password.value,
@@ -86,8 +108,6 @@ export default class NewDeckForm extends Component {
     //   .catch((res) => {
     //     this.setState({ error: res.error });
     //   });
-    console.log('ev', ev);
-    alert('new deck form submit button clicked');
   };
 
   render() {
@@ -96,8 +116,8 @@ export default class NewDeckForm extends Component {
       <form className="NewDeckForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="deck_name">
-          <label htmlFor="AddDeckForm__deck_name">Deck Name:</label>
-          <Input required name="deck_name" id="AddDeckForm__deck_name"></Input>
+          <label htmlFor="deck_name_input">Deck Name:</label>
+          <Input required name="deck_name_input" id="deck_name_input"></Input>
         </div>
         <Section className="sectionContainer">
           <Section className="section__subsection">
