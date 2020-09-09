@@ -94,6 +94,7 @@ export default class NewDeckForm extends Component {
               displayProp={'card_prompt'}
               id="cards"
               handleItemClick={this.onCardClick}
+              multiple="multiple"
             />
           </Section>
           <Section className="section_subsection">
@@ -103,6 +104,7 @@ export default class NewDeckForm extends Component {
               displayProp={'student_prompt'}
               id="students"
               handleItemClick={this.onStudentClick}
+              multiple="multiple"
             />
           </Section>
         </Section>

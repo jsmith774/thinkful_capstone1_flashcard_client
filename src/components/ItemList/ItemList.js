@@ -8,6 +8,7 @@ export default class ItemList extends Component {
 
   static defaultProps = {
     selectOptions: [],
+    multiple: false,
     location: {},
     history: {
       push: () => {},
@@ -37,17 +38,34 @@ export default class ItemList extends Component {
       return '';
     }
   }
+  j;
+
+  renderSelect() {
+    const { items, id, multiple } = this.props;
+
+    if (multiple === 'multiple') {
+      return (
+        <select id={id} className="itemList" size="4" multiple>
+          {this.renderSelectOptions(items)}
+        </select>
+      );
+    } else {
+      return (
+        <select id={id} className="itemList" size="4">
+          {this.renderSelectOptions(items)}
+        </select>
+      );
+    }
+  }
 
   render() {
-    const { name, items, id, buttonText, buttonAction } = this.props;
+    const { name, id, buttonText, buttonAction } = this.props;
     return (
       <div className="ItemList__div" id={`ItemList_div_${id}`}>
         <label htmlFor={id} className="ItemList__label">
           {name} &nbsp; {this.renderTitleButton(buttonText, buttonAction)}
         </label>
-        <select id={id} className="itemList" size="4" multiple>
-          {this.renderSelectOptions(items)}
-        </select>
+        {this.renderSelect()}
       </div>
     );
   }
