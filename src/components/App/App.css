@@ -142,6 +142,22 @@ footer {
   font-size: 2em;
 }
 
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.section__subsection {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 450px) {
+  .sectionContainer {
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+}
+
 /*.App {
   text-align: center;
 }

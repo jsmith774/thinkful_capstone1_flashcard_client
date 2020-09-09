@@ -45,13 +45,7 @@ export default class ItemList extends Component {
         <label htmlFor={id} className="ItemList__label">
           {name} &nbsp; {this.renderTitleButton(buttonText, buttonAction)}
         </label>
-        <select
-          id={id}
-          className="itemList"
-          size="4"
-          multiple
-          onChange={(ev) => this.props.handleSelectOnChange(ev)}
-        >
+        <select id={id} className="itemList" size="4" multiple>
           {this.renderSelectOptions(items)}
         </select>
       </div>

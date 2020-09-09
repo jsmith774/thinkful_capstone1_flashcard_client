@@ -7,12 +7,27 @@ import { Button, Input, Section } from '../Utils/Utils';
 export default class NewDeckForm extends Component {
   state = {
     cardList: [],
+    studentList: [],
+    deckCardIdList: [],
+    deckStudentIdList: [],
     error: null,
   };
 
-  onItemClick = (itemId) => {
-    return;
+  onCardClick = (cardId) => {
+    const deckCardIdList = this.state.deckCardIdList;
+
+    const idx = deckCardIdList.indexOf(cardId);
+    if (idx === -1) {
+      //does not exist; add
+      deckCardIdList.push(cardId);
+    } else {
+      //exists; remove
+      deckCardIdList.splice(idx, 1);
+    }
+    this.setState({ deckCardIdList: deckCardIdList }); //maybe wait until "submit" to update state?
   };
+
+  onStudentClick = (studentId) => {};
 
   componentDidMount() {
     //this.context.clearError();
@@ -29,11 +44,11 @@ export default class NewDeckForm extends Component {
     //   .catch(this.context.setError);
 
     //todo load students
-    // let decks = [];
-    // ApiService.getDecks()
-    //   .then((dbDecks) => {
-    //     decks = dbDecks;
-    //     this.setState({ deckList: decks });
+    // let students = [];
+    // ApiService.getStudents()
+    //   .then((dbStudents) => {
+    //     students = dbStudents;
+    //     this.setState({ studentList: students });
     //   })
     //   .catch(this.context.setError);
   }
@@ -62,31 +77,34 @@ export default class NewDeckForm extends Component {
     alert('new deck form submit button clicked');
   };
 
-  handleSelectOnChange = (ev) => {
-    console.log('ev', ev);
-    console.log('ev.target', ev.target);
-    console.log('ev.value', ev.value);
-    console.log('ev.target.value', ev.target.value);
-  };
-
   render() {
     const { error } = this.state;
     return (
-      <form className="LoginForm" onSubmit={this.handleSubmit}>
+      <form className="NewDeckForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="user_name">
+        <div className="deck_name">
           <label htmlFor="AddDeckForm__deck_name">Deck Name:</label>
           <Input required name="deck_name" id="AddDeckForm__deck_name"></Input>
         </div>
-        <Section className="StudentDashboard__section">
-          <ItemList
-            name="Select Cards to Include in Deck:"
-            items={this.state.cardList}
-            displayProp={'card_prompt'}
-            id="cards"
-            handleItemClick={this.onItemClick}
-            handleSelectOnChange={this.handleSelectOnChange}
-          />
+        <Section className="sectionContainer">
+          <Section className="section__subsection">
+            <ItemList
+              name="Select Cards to Include in Deck:"
+              items={this.state.cardList}
+              displayProp={'card_prompt'}
+              id="cards"
+              handleItemClick={this.onCardClick}
+            />
+          </Section>
+          <Section className="section_subsection">
+            <ItemList
+              name="Select Students to Include in Deck:"
+              items={this.state.studentList}
+              displayProp={'student_prompt'}
+              id="students"
+              handleItemClick={this.onStudentClick}
+            />
+          </Section>
         </Section>
         <Button type="submit">Add Deck</Button>
       </form>
