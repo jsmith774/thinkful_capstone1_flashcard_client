@@ -44,13 +44,13 @@ export default class NewDeckForm extends Component {
     //   .catch(this.context.setError);
 
     //todo load students
-    // let students = [];
-    // ApiService.getStudents()
-    //   .then((dbStudents) => {
-    //     students = dbStudents;
-    //     this.setState({ studentList: students });
-    //   })
-    //   .catch(this.context.setError);
+    let students = [];
+    ApiService.getStudents()
+      .then((dbStudents) => {
+        students = dbStudents;
+        this.setState({ studentList: students });
+      })
+      .catch(this.context.setError);
   }
 
   handleSubmit = (ev) => {
@@ -101,7 +101,7 @@ export default class NewDeckForm extends Component {
             <ItemList
               name="Select Students to Include in Deck:"
               items={this.state.studentList}
-              displayProp={'student_prompt'}
+              displayProp={'full_name'}
               id="students"
               handleItemClick={this.onStudentClick}
               multiple="multiple"

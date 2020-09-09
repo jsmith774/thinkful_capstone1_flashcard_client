@@ -19,6 +19,19 @@ const ApiService = {
     });
   },
 
+  getStudents(db) {
+    return fetch(`${config.API_ENDPOINT}/users/students`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((e) => Promise.reject(e));
+      }
+      return res.json();
+    });
+  },
+
   getDecks(db) {
     return fetch(`${config.API_ENDPOINT}/decks`, {
       headers: {
