@@ -27,7 +27,20 @@ export default class NewDeckForm extends Component {
     this.setState({ deckCardIdList: deckCardIdList }); //maybe wait until "submit" to update state?
   };
 
-  onStudentClick = (studentId) => {};
+  onStudentClick = (studentId) => {
+    const deckStudentIdList = this.state.deckStudentIdList;
+
+    const idx = deckStudentIdList.indexOf(studentId);
+    if (idx === -1) {
+      //does not exist; add
+      deckStudentIdList.push(studentId);
+    } else {
+      //exists; remove
+      deckStudentIdList.splice(idx, 1);
+    }
+
+    this.setState({ deckStudentIdList: deckStudentIdList });
+  };
 
   componentDidMount() {
     //this.context.clearError();
@@ -99,7 +112,7 @@ export default class NewDeckForm extends Component {
           </Section>
           <Section className="section_subsection">
             <ItemList
-              name="Select Students to Include in Deck:"
+              name="Select Students who should have access to Deck:"
               items={this.state.studentList}
               displayProp={'full_name'}
               id="students"
