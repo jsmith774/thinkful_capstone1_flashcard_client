@@ -59,14 +59,14 @@ const ApiService = {
     });
   },
 
-  postDeck(args) {
-    const { deckName } = args;
+  postDeck(deckName) {
     console.log('in postDecK(): deckName', deckName);
 
     //todo make this a transaction
     return fetch(`${config.API_ENDPOINT}/decks`, {
       method: 'POST',
-      header: {
+      headers: {
+        'content-type': 'application/json',
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
@@ -74,6 +74,9 @@ const ApiService = {
       }),
     }).then((res) => {
       if (!res.ok) {
+        console.log(res);
+        console.log(`${config.API_ENDPOINT}/decks`);
+        console.log(JSON.stringify({ deck_name: deckName }));
         return res.json().then((e) => Promise.reject(e));
       }
       return res.json();

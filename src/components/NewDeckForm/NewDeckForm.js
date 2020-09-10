@@ -75,9 +75,7 @@ export default class NewDeckForm extends Component {
     // todo use deckId to add cards
     // todo use deckId to give students access
 
-    ApiService.postDeck({
-      deckName: deck_name_input.value,
-    })
+    ApiService.postDeck(deck_name_input.value)
       .then((res) => {
         const { deck_id, deck_name } = res.json;
         console.log(
