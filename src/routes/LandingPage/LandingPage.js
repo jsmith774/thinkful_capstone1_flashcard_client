@@ -91,7 +91,7 @@ export default class LandingPage extends Component {
             <br />
           </li>
         </ul>
-        <h3>DEPLOYMENTS</h3>
+        <h3>Deployments</h3>
         <ul>
           <li>
             <a href="https://client-eta-cyan.vercel.app">
@@ -102,6 +102,16 @@ export default class LandingPage extends Component {
             <a href=" https://dry-scrubland-36737.herokuapp.com/api">
               API Server on Heroku
             </a>
+          </li>
+        </ul>
+
+        <h3>Source Code</h3>
+        <ul>
+          <li>
+            <a href="#">TODO: Add link to Server Repo</a>
+          </li>
+          <li>
+            <a href="#">TODO: Add link to Client Repo</a>
           </li>
         </ul>
       </div>
