@@ -48,7 +48,7 @@ const ApiService = {
 
   findDecksByUserId(userId) {
     return fetch(`${config.API_ENDPOINT}/decks?userid=${userId}`, {
-      header: {
+      headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) => {
@@ -102,7 +102,7 @@ const ApiService = {
     return fetch(
       `${config.API_ENDPOINT}/cards?userid=${userId}&deckid=${deckId}`,
       {
-        header: {
+        headers: {
           authorization: `bearer ${TokenService.getAuthToken()}`,
         },
       }
