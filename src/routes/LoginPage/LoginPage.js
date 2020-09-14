@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { Section } from '../../components/Utils/Utils';
+import AppContext from '../../contexts/AppContext';
 
 export default class LoginPage extends Component {
+  static contextType = AppContext;
+
   static defaultProps = {
     location: {},
     history: {
@@ -11,6 +14,7 @@ export default class LoginPage extends Component {
   };
 
   handleLoginSuccess = () => {
+    this.context.handleLogin();
     const { location, history } = this.props;
     let destination = (location.state || {}).from || '/';
     const userRole = window.localStorage.getItem('userRole');

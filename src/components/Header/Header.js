@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import './Header.css';
+import AppContext from '../../contexts/AppContext';
 
 export default class Header extends Component {
+  static contextType = AppContext;
+
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     window.localStorage.removeItem('userRole');
     window.localStorage.removeItem('userId');
+    this.context.handleLogout();
   };
 
   renderLogoutLink() {
