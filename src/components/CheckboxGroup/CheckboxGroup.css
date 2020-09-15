@@ -1,0 +1,9 @@
+.itemGroupContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  max-height: 300px;
+  min-height: 300px;
+  overflow: scroll;
+}

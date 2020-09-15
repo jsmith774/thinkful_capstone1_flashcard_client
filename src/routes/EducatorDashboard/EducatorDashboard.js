@@ -103,11 +103,11 @@ export default class EducatorDashboard extends Component {
         */}
           <Section className="EducatorDashboard__section">
             <ItemList
-              name="Manage Card Decks"
+              name="Deck List"
               items={this.state.deckList}
               displayProp={'deck_name'}
               id="decks"
-              buttonText="Add (+)"
+              buttonText="Create New Deck (+)"
               buttonAction={this.handleAddDeckClick}
               handleItemClick={this.onItemClick}
             />

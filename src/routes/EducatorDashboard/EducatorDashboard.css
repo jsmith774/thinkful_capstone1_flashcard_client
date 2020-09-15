@@ -7,7 +7,7 @@
   margin-bottom: 16px;
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 480px) {
   .EducatorDashboard {
     flex-direction: row;
     margin-bottom: 16px;

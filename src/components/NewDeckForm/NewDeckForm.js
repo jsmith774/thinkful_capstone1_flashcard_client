@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApiService from '../../services/api-service';
 
 import ItemList from '../../components/ItemList/ItemList';
+import CheckboxGroup from '../../components/CheckboxGroup/CheckboxGroup';
 import { Button, Input, Section } from '../Utils/Utils';
 
 import AppContext from '../../contexts/AppContext';
@@ -17,9 +18,19 @@ export default class NewDeckForm extends Component {
     error: null,
   };
 
-  onCardClick = (cardId) => {
+  onCardChange = (isChecked, cardId) => {
     const deckCardIdList = this.state.deckCardIdList;
 
+    if (isChecked) {
+      deckCardIdList.push(cardId);
+    } else {
+      const idx = deckCardIdList.indexOf(cardId);
+      if (idx !== -1) {
+        //exists; remove
+        deckCardIdList.splict(idx, 1);
+      }
+    }
+    /*
     const idx = deckCardIdList.indexOf(cardId);
     if (idx === -1) {
       //does not exist; add
@@ -28,19 +39,21 @@ export default class NewDeckForm extends Component {
       //exists; remove
       deckCardIdList.splice(idx, 1);
     }
+*/
     this.setState({ deckCardIdList: deckCardIdList }); //maybe wait until "submit" to update state?
   };
 
-  onStudentClick = (studentId) => {
+  onStudentChange = (isChecked, studentId) => {
     const deckStudentIdList = this.state.deckStudentIdList;
 
-    const idx = deckStudentIdList.indexOf(studentId);
-    if (idx === -1) {
-      //does not exist; add
+    if (isChecked) {
       deckStudentIdList.push(studentId);
     } else {
-      //exists; remove
-      deckStudentIdList.splice(idx, 1);
+      const idx = deckStudentIdList.indexOf(studentId);
+      if (idx !== -1) {
+        //exists; remove
+        deckStudentIdList.splice(idx, 1);
+      }
     }
 
     this.setState({ deckStudentIdList: deckStudentIdList });
@@ -73,7 +86,9 @@ export default class NewDeckForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
     this.setState({ error: null });
+    console.log('raw event', ev);
     const { deck_name_input } = ev.target;
+    console.log('ev.target', ev.target);
 
     // todo post addDeck - get deckId
     // todo use deckId to add cards
@@ -129,6 +144,35 @@ export default class NewDeckForm extends Component {
         </div>
         <Section className="sectionContainer">
           <Section className="section__subsection">
+            <CheckboxGroup
+              groupTitle="Select Cards to Include in Deck:"
+              inputName="cardsInDeck"
+              items={this.state.cardList}
+              displayProp={'card_prompt'}
+              id="cards"
+              handleItemChange={this.onCardChange}
+            />
+          </Section>
+          <Section className="section_subsection">
+            <CheckboxGroup
+              groupTitle="Select Students who should have access to Deck:"
+              inputName="studentsWithAccess"
+              items={this.state.studentList}
+              displayProp={'full_name'}
+              id="students"
+              handleItemChange={this.onStudentChange}
+            />
+          </Section>
+        </Section>
+        <Button type="submit">Add Deck</Button>
+      </form>
+    );
+  }
+}
+
+/*
+<Section className="sectionContainer">
+          <Section className="section__subsection">
             <ItemList
               name="Select Cards to Include in Deck:"
               items={this.state.cardList}
@@ -149,8 +193,4 @@ export default class NewDeckForm extends Component {
             />
           </Section>
         </Section>
-        <Button type="submit">Add Deck</Button>
-      </form>
-    );
-  }
-}
+*/

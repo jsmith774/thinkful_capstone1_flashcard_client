@@ -31,8 +31,6 @@ export default class ButtonList extends Component {
       <>
         <h3>{listTitle}</h3>
         <ul className="ButtonList__ul">{this.renderItems(items)}</ul>
-
-        <p>Button List blah blah blah</p>
       </>
     );
   }

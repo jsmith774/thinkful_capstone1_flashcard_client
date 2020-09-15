@@ -38,7 +38,6 @@ export default class ItemList extends Component {
       return '';
     }
   }
-  j;
 
   renderSelect() {
     const { items, id, multiple } = this.props;
