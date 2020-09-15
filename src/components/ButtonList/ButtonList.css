@@ -1,0 +1,14 @@
+.ButtonList__button {
+  width: 100%;
+  font-size: bigger;
+  text-align: left;
+}
+
+.ButtonList__ul {
+  text-align: left;
+  justify-content: left;
+}
+
+.ButtonList__li {
+  list-style-type: none;
+}

@@ -3,7 +3,7 @@ import { Section } from '../../components/Utils/Utils';
 
 import ApiService from '../../services/api-service';
 //import Header from '../../components/Header/Header';
-import ItemList from '../../components/ItemList/ItemList';
+import ButtonList from '../../components/ButtonList/ButtonList';
 
 export default class StudentDashboard extends Component {
   static defaultProps = {
@@ -29,19 +29,26 @@ export default class StudentDashboard extends Component {
     deckList: [],
   };
 
-  onItemClick = (itemId, itemName) => {
-    //todo load cards and start quiz
-    //    const { history } = this.props;
-    //    history.push(`/assessment/${itemId}/${itemName}`);
-    this.setState({ activeItem: { itemId: itemId, itemName: itemName } });
-  };
+  // onItemClick = (itemId, itemName) => {
+  //   //todo load cards and start quiz
+  //   //    const { history } = this.props;
+  //   //    history.push(`/assessment/${itemId}/${itemName}`);
+  //   this.setState({ activeItem: { itemId: itemId, itemName: itemName } });
+  // };
 
-  handleStartClick = () => {
+  // handleStartClick = () => {
+  //   const { history } = this.props;
+  //   const activeItem = this.state.activeItem;
+  //   const itemId = activeItem.itemId;
+  //   const itemName = activeItem.itemName;
+  //   history.push(`/assessment/${itemId}/${itemName}`);
+  // };
+
+  onItemClick = (deck) => {
+    console.log('itemId', deck.id);
+    console.log('itemName', deck.deck_name);
     const { history } = this.props;
-    const activeItem = this.state.activeItem;
-    const itemId = activeItem.itemId;
-    const itemName = activeItem.itemName;
-    history.push(`/assessment/${itemId}/${itemName}`);
+    history.push(`/assessment/${deck.id}/${deck.deck_name}`);
   };
 
   componentDidMount() {
@@ -85,6 +92,22 @@ export default class StudentDashboard extends Component {
         <h2>Student Dashboard</h2>
         <Section className="StudentDashboard">
           <Section className="StudentDashboard__section">
+            <ButtonList
+              listTitle="Click a Deck to Begin"
+              items={this.state.deckList}
+              displayProp={'deck_name'}
+              id="decks"
+              handleItemClick={this.onItemClick}
+            />
+          </Section>
+        </Section>
+      </Section>
+    );
+  }
+}
+
+/*
+<Section className="StudentDashboard__section">
             <ItemList
               name="Select a Deck to Practice"
               items={this.state.deckList}
@@ -101,8 +124,4 @@ export default class StudentDashboard extends Component {
               </span>
             </button>
           </Section>
-        </Section>
-      </Section>
-    );
-  }
-}
+*/
