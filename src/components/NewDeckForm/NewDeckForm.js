@@ -4,7 +4,11 @@ import ApiService from '../../services/api-service';
 import ItemList from '../../components/ItemList/ItemList';
 import { Button, Input, Section } from '../Utils/Utils';
 
+import AppContext from '../../contexts/AppContext';
+
 export default class NewDeckForm extends Component {
+  static contextType = AppContext;
+
   state = {
     cardList: [],
     studentList: [],
@@ -89,13 +93,14 @@ export default class NewDeckForm extends Component {
           'deckId',
           deckId
         );
-        //ApiService.addCardsToDeck(deck_id, this.state.deckCardIdList);
-        //ApiService.addStudentsToDeck(deck_id, this.state.deckStudentIdList);
-        //
       })
       .catch((res) => {
         this.setState({ error: res.error });
       });
+
+    this.props.afterAddHandler();
+    // this.context.handleLogin();
+
     // AuthApiService.postLogin({
     //   user_name: user_name.value,
     //   password: password.value,

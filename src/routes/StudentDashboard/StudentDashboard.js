@@ -31,7 +31,16 @@ export default class StudentDashboard extends Component {
 
   onItemClick = (itemId, itemName) => {
     //todo load cards and start quiz
+    //    const { history } = this.props;
+    //    history.push(`/assessment/${itemId}/${itemName}`);
+    this.setState({ activeItem: { itemId: itemId, itemName: itemName } });
+  };
+
+  handleStartClick = () => {
     const { history } = this.props;
+    const activeItem = this.state.activeItem;
+    const itemId = activeItem.itemId;
+    const itemName = activeItem.itemName;
     history.push(`/assessment/${itemId}/${itemName}`);
   };
 
@@ -83,6 +92,14 @@ export default class StudentDashboard extends Component {
               id="decks"
               handleItemClick={this.onItemClick}
             />
+            <button onClick={() => this.handleStartClick()}>
+              <span className="assessOpt">
+                Start{' '}
+                <span role="img" aria-label="green circle start icon">
+                  🟢
+                </span>
+              </span>
+            </button>
           </Section>
         </Section>
       </Section>

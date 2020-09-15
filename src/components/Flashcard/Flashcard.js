@@ -17,7 +17,12 @@ export default class Flashcard extends Component {
       //return back of card image render
       return (
         <>
-          <div className="flashcard__card flashcard__facedown">&nbsp;</div>
+          <div className="flashcard__card flashcard__facedown">
+            Click on Card to Flip{' '}
+            <span role="img" aria-label="try again looping arrows icon">
+              🔄
+            </span>
+          </div>
         </>
       );
     } else {

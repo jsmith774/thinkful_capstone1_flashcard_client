@@ -10,4 +10,5 @@ export default React.createContext({
   setDecks: () => {},
   handleLogin: () => {},
   handleLogout: () => {},
+  handleDeckAdded: () => {},
 });

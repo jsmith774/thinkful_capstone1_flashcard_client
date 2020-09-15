@@ -21,6 +21,13 @@ import AppContext from '../../contexts/AppContext';
 class App extends Component {
   state = { hasError: false };
 
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {},
+    },
+  };
+
   static getDerivedStateFromError(error) {
     console.error(error);
     return { hasError: true };
@@ -53,6 +60,11 @@ class App extends Component {
 
   handleLogout = () => {
     this.setState({ loginStatus: { status: 'Logged Oout' } });
+  };
+
+  handleDeckAdded = () => {
+    const { history } = this.props;
+    history.push('/educator-dashboard');
   };
 
   render() {

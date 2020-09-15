@@ -78,12 +78,8 @@ const ApiService = {
       }),
     }).then((res) => {
       if (!res.ok) {
-        console.log(res);
-        console.log(`${config.API_ENDPOINT}/decks`);
-        console.log(JSON.stringify({ deck_name: deckName }));
         return res.json().then((e) => Promise.reject(e));
       }
-      console.log('POST RES:', res.json());
       return res.json();
     });
     //postDeck returns deckId; use deckId to add cards and to add Students
