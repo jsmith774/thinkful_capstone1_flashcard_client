@@ -30,24 +30,24 @@ Educators will see a read-only list of decks and a button to create a new Deck.
 ![Educator Dashboard Screenshot](./README_Screenshots/Educator.png?s=320)
 
 Educators will create new Decks by providing a unique Deck name then selecting specific cards that will make up the deck from the pre-existing card pool, and selecting which Student users should have access to the Deck.
-![Create Deck Screenshot](./README_Screenshots/CreateDeck.png)
+![Create Deck Screenshot](./README_Screenshots/CreateDeck.png?s=320)
 
 **Student**
 
 Students can select a Deck they have been granted access to to do a self-assessment for formative stage learning.
-![Student Dashborad Screenshot](./README_Screenshots/Student.png)
+![Student Dashborad Screenshot](./README_Screenshots/Student.png?s=320)
 
 They will be taken to an Assessment launch page where they will need to click the start button to begin the assessment.
-![Start Assessment Screenshot](./README_Screenshots/Start.png)
+![Start Assessment Screenshot](./README_Screenshots/Start.png?s=320)
 
 The Assessment will cycle through all cards. Cards will be initially presented face down.  
-![Facedown Card Screenshot](./README_Screenshots/Facedown.png)
+![Facedown Card Screenshot](./README_Screenshots/Facedown.png?s=320)
 
 The Student will click the card to "flip" it face up and try to formulate an answer.
-![Faceup Card Screenshot](./README_Screenshots/Faceup.png)
+![Faceup Card Screenshot](./README_Screenshots/Faceup.png?s=320)
 
 The Student will then check their work against the pre-recorded audio of the correct answer by pressing play, and will check whether they arrived at the correct answer.  
-![Check Answer Screenshot](./README_Screenshots/CheckAnswer.png)
+![Check Answer Screenshot](./README_Screenshots/CheckAnswer.png?s=320)
 
 Selecting either "yes" or "no" will advance to the next Facedown card and the entire process continues. After answering the last card, a summary will show the number correct for the previous deck assessment and students can "Try Again" which will restart the current Deck or return to their Dashboard to select a different Deck.
-![Assessment Summary Screenshot](./README_Screenshots/Summary.png)
+![Assessment Summary Screenshot](./README_Screenshots/Summary.png?s=320)
