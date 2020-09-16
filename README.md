@@ -26,6 +26,8 @@ Each role has access to different functionality within the app.
 
 **Educator**
 
+**Demo Educator Login:** Username: **mrssmith** Password: **mrssmith**
+
 Educators will see a read-only list of decks and a button to create a new Deck.
 <img src="./README_Screenshots/Educator.png" width="450" alt="Educator Dashboard Screenshot"/>
 
@@ -33,6 +35,8 @@ Educators will create new Decks by providing a unique Deck name then selecting s
 <img src="./README_Screenshots/CreateDeck.png" width="450" alt="Create Deck Screenshot"/>
 
 **Student**
+
+**Demo Studetn Login:** Username: **plainjane** Password: **plainjane**
 
 Students can select a Deck they have been granted access to to do a self-assessment for formative stage learning.
 <img src="./README_Screenshots/Student.png" width="450" alt="Student Dashborad Screenshot"/>
