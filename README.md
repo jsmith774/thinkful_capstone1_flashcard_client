@@ -31,6 +31,7 @@ Educators will see a read-only list of decks and a button to create a new Deck.
 
 Educators will create new Decks by providing a unique Deck name then selecting specific cards that will make up the deck from the pre-existing card pool, and selecting which Student users should have access to the Deck.
 ![Create Deck Screenshot](./README_Screenshots/CreateDeck.png?s=320)
+<img src="./README_Screenshots/CreateDeck.png" width="320"/>
 
 **Student**
 
