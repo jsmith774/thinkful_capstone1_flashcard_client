@@ -36,7 +36,7 @@ Educators will create new Decks by providing a unique Deck name then selecting s
 
 **Student**
 
-**Demo Studetn Login:** Username: **plainjane** Password: **plainjane**
+**Demo Student Login:** Username: **plainjane** Password: **plainjane**
 
 Students can select a Deck they have been granted access to to do a self-assessment for formative stage learning.
 <img src="./README_Screenshots/Student.png" width="450" alt="Student Dashborad Screenshot"/>
