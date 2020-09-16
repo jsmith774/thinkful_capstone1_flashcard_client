@@ -15,10 +15,10 @@ This repo is client side of the CyberCard application. **NOTE: Requires API Serv
 CyberCard is an online flashcard app. The demo is for early reader "sight words", but this could be used for math problems, music rythym patterns, or any other subject matter where short answer formats are appropriate.
 
 The Landing Page is for demo purposes and contains basic instructions for demo accounts. All screens , including the Landing Page have a 'Login' or 'Logout' link at the top (see screenshot).
-![Landing Page Login Link Screenshot](./README_Screenshots/LandingPage.png | width=320)
+![Landing Page Login Link Screenshot](./README_Screenshots/LandingPage.png?s=320)
 
 Click Login to begin demo and you can Logout at anytime to end your session and/or log in as a new user with a different role.
-![Login Page Screenshot](./README_Screenshots/LoginForm.png | width=320)
+![Login Page Screenshot](./README_Screenshots/LoginForm.png?s=320)
 
 There is no user registration because the education institution admin/registrars would preload user accounts. Users have one of two roles, either Educator or Student
 
@@ -27,7 +27,7 @@ Each role has access to different functionality within the app.
 **Educator**
 
 Educators will see a read-only list of decks and a button to create a new Deck.
-![Educator Dashboard Screenshot](./README_Screenshots/Educator.png | width=320)
+![Educator Dashboard Screenshot](./README_Screenshots/Educator.png?s=320)
 
 Educators will create new Decks by providing a unique Deck name then selecting specific cards that will make up the deck from the pre-existing card pool, and selecting which Student users should have access to the Deck.
 ![Create Deck Screenshot](./README_Screenshots/CreateDeck.png)
