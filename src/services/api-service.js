@@ -1,10 +1,6 @@
 import TokenService from '../services/token-service';
 import config from '../config';
-import StudentDashboard from '../routes/StudentDashboard/StudentDashboard';
 
-/**
- * todo Refactor out header/authoriation token to avoid duplication
- */
 const ApiService = {
   getCards(db) {
     return fetch(`${config.API_ENDPOINT}/cards`, {
@@ -12,7 +8,6 @@ const ApiService = {
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) => {
-      //return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
       if (!res.ok) {
         return res.json().then((e) => Promise.reject(e));
       }
@@ -82,17 +77,15 @@ const ApiService = {
       }
       return res.json();
     });
-    //postDeck returns deckId; use deckId to add cards and to add Students
-    // return Promise.resolve('hello');
   },
 
-  addCardsToDeck(deckId, cardIds) {
-    return;
-  },
+  // addCardsToDeck(deckId, cardIds) {
+  //   return;
+  // },
 
-  addStudentsToDeck(deckId, studentIds) {
-    return;
-  },
+  // addStudentsToDeck(deckId, studentIds) {
+  //   return;
+  // },
 
   findCardsByDeckId(userId, deckId) {
     return fetch(

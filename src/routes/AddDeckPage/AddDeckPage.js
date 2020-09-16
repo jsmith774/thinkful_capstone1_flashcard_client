@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import EducatorContext from '../../contexts/EducatorContext';
-import AppContext from '../../contexts/AppContext';
 import NewDeckForm from '../../components/NewDeckForm/NewDeckForm';
 import { Link } from 'react-router-dom';
 

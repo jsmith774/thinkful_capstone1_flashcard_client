@@ -96,10 +96,15 @@ export default class LandingPage extends Component {
           <li>
             <a href="https://client-eta-cyan.vercel.app">
               Web Client on Vercel
-            </a>
+            </a>{' '}
+            NOTE: You are currently viewing a Client deployment if you're seeing
+            this page
           </li>
           <li>
-            <a href=" https://dry-scrubland-36737.herokuapp.com/api">
+            <a
+              href=" https://dry-scrubland-36737.herokuapp.com/api"
+              target="_blank"
+            >
               API Server on Heroku
             </a>
           </li>
@@ -108,10 +113,20 @@ export default class LandingPage extends Component {
         <h3>Source Code</h3>
         <ul>
           <li>
-            <a href="#">TODO: Add link to Server Repo</a>
+            <a
+              href="https://github.com/jsmith774/thinkful_capstone1_flashcard_server"
+              target="_blank"
+            >
+              Server Source Repo
+            </a>
           </li>
           <li>
-            <a href="#">TODO: Add link to Client Repo</a>
+            <a
+              href="https://github.com/jsmith774/thinkful_capstone1_flashcard_client"
+              target="_blank"
+            >
+              Client Source Repo
+            </a>
           </li>
         </ul>
       </div>

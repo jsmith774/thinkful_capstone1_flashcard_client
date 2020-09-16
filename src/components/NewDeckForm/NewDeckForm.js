@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ApiService from '../../services/api-service';
 
-import ItemList from '../../components/ItemList/ItemList';
 import CheckboxGroup from '../../components/CheckboxGroup/CheckboxGroup';
 import { Button, Input, Section } from '../Utils/Utils';
 
