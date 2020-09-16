@@ -27,7 +27,7 @@ export default class NewDeckForm extends Component {
       const idx = deckCardIdList.indexOf(cardId);
       if (idx !== -1) {
         //exists; remove
-        deckCardIdList.splict(idx, 1);
+        deckCardIdList.splice(idx, 1);
       }
     }
     /*

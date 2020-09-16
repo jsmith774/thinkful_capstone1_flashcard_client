@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './CheckboxGroup.css';
 
 export default class CheckboxGroup extends Component {
@@ -11,7 +11,7 @@ export default class CheckboxGroup extends Component {
   renderItems(items) {
     const displayProp = this.props.displayProp || 'name';
     return items.map((item) => (
-      <>
+      <Fragment key={`frag_${item.id}`}>
         <div key={`div_${item.id}`}>
           <input
             key={item.id}
@@ -28,7 +28,7 @@ export default class CheckboxGroup extends Component {
           </label>
           <br />
         </div>
-      </>
+      </Fragment>
     ));
   }
 
