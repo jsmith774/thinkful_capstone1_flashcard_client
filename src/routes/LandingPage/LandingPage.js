@@ -65,6 +65,28 @@ export default class LandingPage extends Component {
           adding select cards to the deck, and granting deck access to select
           student users.
         </p>
+        <p>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/jsmith774/thinkful_capstone1_flashcard_client/blob/master/README.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Client README
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/jsmith774/thinkful_capstone1_flashcard_server/blob/master/README.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Server README
+              </a>
+            </li>
+          </ul>
+        </p>
         <h3>User Roles</h3>
         <ul>
           <li>
@@ -104,6 +126,7 @@ export default class LandingPage extends Component {
             <a
               href=" https://dry-scrubland-36737.herokuapp.com/api"
               target="_blank"
+              rel="noopener noreferrer"
             >
               API Server on Heroku
             </a>
@@ -116,6 +139,7 @@ export default class LandingPage extends Component {
             <a
               href="https://github.com/jsmith774/thinkful_capstone1_flashcard_server"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Server Source Repo
             </a>
@@ -124,6 +148,7 @@ export default class LandingPage extends Component {
             <a
               href="https://github.com/jsmith774/thinkful_capstone1_flashcard_client"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Client Source Repo
             </a>
