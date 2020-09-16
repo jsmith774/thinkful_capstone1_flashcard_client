@@ -50,5 +50,4 @@ The Student will then check their work against the pre-recorded audio of the cor
 <img src="./README_Screenshots/CheckAnswer.png" width="450" alt="Check Answer Screenshot"/>
 
 Selecting either "yes" or "no" will advance to the next Facedown card and the entire process continues. After answering the last card, a summary will show the number correct for the previous deck assessment and students can "Try Again" which will restart the current Deck or return to their Dashboard to select a different Deck.
-![](./README_Screenshots/Summary.png?s=450)
 <img src="./README_Screenshots/Summary.png" width="450" alt="Assessment Summary Screenshot"/>
