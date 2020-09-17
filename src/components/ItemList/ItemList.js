@@ -8,6 +8,7 @@ export default class ItemList extends Component {
 
   static defaultProps = {
     selectOptions: [],
+    items: [],
     multiple: false,
     location: {},
     history: {
@@ -69,18 +70,3 @@ export default class ItemList extends Component {
     );
   }
 }
-
-// export function Section({ className, list, ...props }) {
-//   const classes = ['Section', list && 'Section--list', className]
-//     .filter(Boolean)
-//     .join(' ');
-//   return <section className={classes} {...props} />;
-// }
-// <option value="FC1">and</option>
-// <option value="FC2">at</option>
-// <option value="FC3">bunny</option>
-// <option value="FC4">but</option>
-// <option value="FC5">he</option>
-// <option value="FC6">on</option>
-// <option value="FC7">she</option>
-// <option value="FC8">the</option>

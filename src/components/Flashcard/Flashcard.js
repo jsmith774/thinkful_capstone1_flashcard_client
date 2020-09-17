@@ -4,6 +4,10 @@ import './Flashcard.css';
 import './cardBack.jpg';
 
 export default class Flashcard extends Component {
+  static defaultProps = {
+    card: { card_prompt: 'test', card_answer: 'test' },
+  };
+
   VIEW = {
     FACEDOWN: 'Facedown',
     FACEUP: 'Faceup',
