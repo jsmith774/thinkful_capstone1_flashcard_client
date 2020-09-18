@@ -5,6 +5,7 @@ import CheckboxGroup from '../../components/CheckboxGroup/CheckboxGroup';
 import { Button, Input, Section } from '../Utils/Utils';
 
 import AppContext from '../../contexts/AppContext';
+import './NewDeckForm.css';
 
 export default class NewDeckForm extends Component {
   static contextType = AppContext;
@@ -139,7 +140,12 @@ export default class NewDeckForm extends Component {
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="deck_name">
           <label htmlFor="deck_name_input">Deck Name:</label>
-          <Input required name="deck_name_input" id="deck_name_input"></Input>
+          <Input
+            className="deck_name"
+            required
+            name="deck_name_input"
+            id="deck_name_input"
+          ></Input>
         </div>
         <Section className="sectionContainer">
           <Section className="section__subsection">

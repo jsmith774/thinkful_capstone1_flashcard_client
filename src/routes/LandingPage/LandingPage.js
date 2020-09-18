@@ -65,28 +65,27 @@ export default class LandingPage extends Component {
           adding select cards to the deck, and granting deck access to select
           student users.
         </p>
-        <p>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/jsmith774/thinkful_capstone1_flashcard_client/blob/master/README.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Client README
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/jsmith774/thinkful_capstone1_flashcard_server/blob/master/README.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Server README
-              </a>
-            </li>
-          </ul>
-        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/jsmith774/thinkful_capstone1_flashcard_client/blob/master/README.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Client README
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/jsmith774/thinkful_capstone1_flashcard_server/blob/master/README.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Server README
+            </a>
+          </li>
+        </ul>
+
         <h3>User Roles</h3>
         <ul>
           <li>

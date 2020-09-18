@@ -9,5 +9,6 @@ form .LoginForm__Button {
 }
 
 .Input {
-  width: auto;
+  width: 80%;
+  margin: 0 auto 25px auto;
 }
