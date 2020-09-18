@@ -1,7 +1,6 @@
 .flashcard__container {
   text-align: center;
   margin: auto;
-  /*padding: 100px ;*/
   width: 100%;
   min-width: 100%;
   max-width: 800px;
@@ -20,32 +19,15 @@ audio {
 }
 
 .flashcard__card {
-  /*min-width: 390px;*/
-
   width: 100%;
 
   min-height: 260px;
   display: flex;
   justify-content: center;
-  align-items: center; /*
-  height: 260px;
-  max-height: 260px;
-
-  /*background-color: #fbf3ff;
-  color: #4c046f;*/
+  align-items: center;
   background-color: #0008ff;
   color: #ffffff;
   text-shadow: 4px 4px 8px #000033;
-
-  /*border: solid thick #4c046f;*/ /*
-  border: solid medium black;
-  border-radius: 8px;
-  box-shadow: 5px 5px #000068;
-
-  margin-bottom: 50px;
-
-
-*/
 }
 
 .flashcard__facedown {

@@ -18,7 +18,6 @@ export default class Flashcard extends Component {
 
   renderCard(card, view) {
     if (view === this.VIEW.FACEDOWN) {
-      //return back of card image render
       return (
         <>
           <div className="flashcard__card flashcard__facedown">

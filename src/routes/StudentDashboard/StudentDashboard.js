@@ -18,8 +18,6 @@ export default class StudentDashboard extends Component {
   };
 
   onItemClick = (deck) => {
-    console.log('itemId', deck.id);
-    console.log('itemName', deck.deck_name);
     const { history } = this.props;
     history.push(`/assessment/${deck.id}/${deck.deck_name}`);
   };

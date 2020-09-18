@@ -55,11 +55,6 @@ const ApiService = {
   },
 
   postDeck(deckName, cards, students) {
-    console.log('in postDeck(): deckName', deckName);
-    console.log('cards', cards);
-    console.log('students', students);
-
-    //todo make this a transaction
     return fetch(`${config.API_ENDPOINT}/decks`, {
       method: 'POST',
       headers: {
@@ -78,14 +73,6 @@ const ApiService = {
       return res.json();
     });
   },
-
-  // addCardsToDeck(deckId, cardIds) {
-  //   return;
-  // },
-
-  // addStudentsToDeck(deckId, studentIds) {
-  //   return;
-  // },
 
   findCardsByDeckId(userId, deckId) {
     return fetch(

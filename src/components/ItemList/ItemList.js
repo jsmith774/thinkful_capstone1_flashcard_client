@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './ItemList.css';
 
 export default class ItemList extends Component {
-  // handleItemClick(itemId) {
-  //  implementation passed in as prop from using components EducatorDashboard and StudentDashboard
-  // }
-
   static defaultProps = {
     selectOptions: [],
     items: [],
@@ -17,7 +13,6 @@ export default class ItemList extends Component {
   };
 
   renderSelectOptions(selectOptions) {
-    //const selectOptions = this.props.items;
     const displayProp = this.props.displayProp || 'name';
     return selectOptions.map((option) => (
       <option
