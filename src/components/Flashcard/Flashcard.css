@@ -1,3 +1,4 @@
+/*
 .flashcard__container {
   text-align: center;
   margin: auto;
@@ -8,7 +9,7 @@
   margin: 20px;
   text-align: center;
 }
-
+*/
 .flashcard__content {
   font-size: 5em;
   font-weight: bold;
@@ -16,10 +17,12 @@
 }
 
 .flashcard__card {
-  min-width: 390px;
-  max-width: 390px;
+  /*min-width: 390px;*/
 
-  min-height: 260px;
+  width: 100%;
+
+  /*min-height: 260px;*/ /*
+  height: 260px;
   max-height: 260px;
 
   /*background-color: #fbf3ff;
@@ -28,7 +31,7 @@
   color: #ffffff;
   text-shadow: 4px 4px 8px #000033;
 
-  /*border: solid thick #4c046f;*/
+  /*border: solid thick #4c046f;*/ /*
   border: solid medium black;
   border-radius: 8px;
   box-shadow: 5px 5px #000068;
@@ -38,7 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+*/
+} /*
 
 .flashcard__facedown {
   background-image: url('cardBack.jpg');
@@ -52,7 +56,7 @@
   color: #ffffff;
   text-shadow: 6px 6px 4px #000000;
 }
-
+*/
 .flashcard__incorrect {
   color: red;
 }
