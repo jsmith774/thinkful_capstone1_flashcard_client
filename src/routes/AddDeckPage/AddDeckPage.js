@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { Section } from '../../components/Utils/Utils';
 
 export default class EducatorDashboard extends Component {
-  // static contextType = AppContext;
-
   static defaultProps = {
     location: {},
     history: {
@@ -29,36 +27,6 @@ export default class EducatorDashboard extends Component {
   addAnotherDeck = () => {
     this.setState({ message: null });
   };
-  // //todo implement this for basic edit/delete funtionality? or keep 'do nothing' impl?
-  // onItemClick = (itemId) => {
-  //   return;
-  // };
-
-  // handleAddDeckClick = () => {
-  //   //alert('Add Deck');
-  //   //load add deck page (load cards and students)
-  // };
-
-  // componentDidMount() {
-  //   // //this.context.clearError();
-  //   // let cards = [];
-  //   // ApiService.getCards()
-  //   //   .then((dbCards) => {
-  //   //     cards = dbCards;
-  //   //     this.setState({ cardList: cards });
-  //   //   })
-  //   //   .catch(this.context.setError);
-  //   // // ApiService.getCards()
-  //   // //   .then(this.context.setCards)
-  //   // //   .catch(this.context.setError);
-  //   // let decks = [];
-  //   // ApiService.getDecks()
-  //   //   .then((dbDecks) => {
-  //   //     decks = dbDecks;
-  //   //     this.setState({ deckList: decks });
-  //   //   })
-  //   //   .catch(this.context.setError);
-  // }
 
   renderNewDeckPage() {
     if (this.state.message) {

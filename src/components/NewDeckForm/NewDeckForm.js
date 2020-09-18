@@ -26,21 +26,11 @@ export default class NewDeckForm extends Component {
     } else {
       const idx = deckCardIdList.indexOf(cardId);
       if (idx !== -1) {
-        //exists; remove
+        /* card already exists; remove from list */
         deckCardIdList.splice(idx, 1);
       }
     }
-    /*
-    const idx = deckCardIdList.indexOf(cardId);
-    if (idx === -1) {
-      //does not exist; add
-      deckCardIdList.push(cardId);
-    } else {
-      //exists; remove
-      deckCardIdList.splice(idx, 1);
-    }
-*/
-    this.setState({ deckCardIdList: deckCardIdList }); //maybe wait until "submit" to update state?
+    this.setState({ deckCardIdList: deckCardIdList });
   };
 
   onStudentChange = (isChecked, studentId) => {
@@ -51,7 +41,7 @@ export default class NewDeckForm extends Component {
     } else {
       const idx = deckStudentIdList.indexOf(studentId);
       if (idx !== -1) {
-        //exists; remove
+        /* student already exists; remove from list */
         deckStudentIdList.splice(idx, 1);
       }
     }
@@ -60,8 +50,8 @@ export default class NewDeckForm extends Component {
   };
 
   componentDidMount() {
-    //this.context.clearError();
     let cards = [];
+    //load cards from database and place into state
     ApiService.getCards()
       .then((dbCards) => {
         cards = dbCards;
@@ -69,11 +59,7 @@ export default class NewDeckForm extends Component {
       })
       .catch(this.context.setError);
 
-    // ApiService.getCards()
-    //   .then(this.context.setCards)
-    //   .catch(this.context.setError);
-
-    //todo load students
+    //load students from database and place into state
     let students = [];
     ApiService.getStudents()
       .then((dbStudents) => {
@@ -86,13 +72,7 @@ export default class NewDeckForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
     this.setState({ error: null });
-    console.log('raw event', ev);
     const { deck_name_input } = ev.target;
-    console.log('ev.target', ev.target);
-
-    // todo post addDeck - get deckId
-    // todo use deckId to add cards
-    // todo use deckId to give students access
 
     ApiService.postDeck(
       deck_name_input.value,
@@ -100,37 +80,13 @@ export default class NewDeckForm extends Component {
       this.state.deckStudentIdList
     )
       .then((res) => {
-        //const { deck_id, deck_name } = res.json;
-        const deckId = res.json;
-        console.log(
-          'IN postDeck().then: deckName',
-          //deck_name,
-          'deckId',
-          deckId
-        );
+        return res.json;
       })
       .catch((res) => {
         this.setState({ error: res.error });
       });
 
     this.props.afterAddHandler();
-    // this.context.handleLogin();
-
-    // AuthApiService.postLogin({
-    //   user_name: user_name.value,
-    //   password: password.value,
-    // })
-    //   .then((res) => {
-    //     user_name.value = '';
-    //     password.value = '';
-    //     TokenService.saveAuthToken(res.authToken);
-    //     window.localStorage.setItem('userId', res.userId);
-    //     window.localStorage.setItem('userRole', res.userRole);
-    //     this.props.onLoginSuccess();
-    //   })
-    //   .catch((res) => {
-    //     this.setState({ error: res.error });
-    //   });
   };
 
   render() {
@@ -174,28 +130,3 @@ export default class NewDeckForm extends Component {
     );
   }
 }
-
-/*
-<Section className="sectionContainer">
-          <Section className="section__subsection">
-            <ItemList
-              name="Select Cards to Include in Deck:"
-              items={this.state.cardList}
-              displayProp={'card_prompt'}
-              id="cards"
-              handleItemClick={this.onCardClick}
-              multiple="multiple"
-            />
-          </Section>
-          <Section className="section_subsection">
-            <ItemList
-              name="Select Students who should have access to Deck:"
-              items={this.state.studentList}
-              displayProp={'full_name'}
-              id="students"
-              handleItemClick={this.onStudentClick}
-              multiple="multiple"
-            />
-          </Section>
-        </Section>
-*/

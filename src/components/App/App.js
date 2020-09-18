@@ -37,7 +37,6 @@ class App extends Component {
    * CONTEXT CALLBACKS
    */
   setCards = (cards) => {
-    console.log('setting state- cards:', cards);
     return this.setState({ cards });
   };
 

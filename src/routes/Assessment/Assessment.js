@@ -23,26 +23,20 @@ export default class Assessment extends Component {
     cardList: [],
     deckId: 0,
     deckName: '',
-    scoreCorrect: 0, //cardList.length = total # questions: score disply `{scoreCorrect} out of {cardList.length}`
+    scoreCorrect: 0,
     assessmentState: this.ASSESSMENT_STATE.NEW,
-
-    //todo see quiz app - viewState, question#, etc
-    //Current Card State
+    //Current Card Only Level State
     currentCard: 0,
     answerStatus: this.ANSWER_STATUS.INCORRECT,
   };
 
   componentDidMount() {
-    //this.context.clearError();
-
     let cards = [];
-    //let deckName = ''; //todo get deckname from db or better from all_decks context lookup
 
     const { deckId, deckName } = this.props.match.params;
     ApiService.findCardsByDeckId(window.localStorage.getItem('userId'), deckId)
       .then((dbCards) => {
         cards = dbCards;
-        //todo SHUFFLE (if deck type = random; otherwise order is fixed)
         this.setState({
           cardList: cards,
           deckId: deckId,
@@ -51,9 +45,6 @@ export default class Assessment extends Component {
         });
       })
       .catch(this.context.setError);
-    // ApiService.getCards()
-    //   .then(this.context.setCards)
-    //   .catch(this.context.setError);
   }
 
   handleStartClick = () => {
@@ -69,25 +60,18 @@ export default class Assessment extends Component {
       assessmentState: this.ASSESSMENT_STATE.NEW,
       currentCard: 0,
       scoreCorrect: 0,
-      //todo SHUFFLE (if deck type = random; otherwise order is fixed)
     });
   };
 
   flipFaceUp = () => {
-    console.log('Card Clicked...' + this.state.cardView);
     if (this.state.assessmentState === this.ASSESSMENT_STATE.PROMPT_FACEDOWN) {
-      console.log('Changing card view from FACEDOWN to FACEUP');
       this.setState({
         assessmentState: this.ASSESSMENT_STATE.PROMPT_FACEUP,
       });
-    } else {
-      console.log('Card is already faceup - do nothing');
     }
   };
 
   reviewAnswer = () => {
-    console.log('REVIEW ANSER:' + this.state.cardView);
-    console.log('changing state from prompt_face to answer');
     this.setState({
       assessmentState: this.ASSESSMENT_STATE.ANSWER,
     });
@@ -183,36 +167,15 @@ export default class Assessment extends Component {
             </div>
           </>
         );
-      //score out of
-      //try again?
       default:
         return <h1>INVALID STATE</h1>;
     }
-
-    //answer view eventHandler - currentCard++
-    //  if currentCard is lastCard
-    //assessmentState = results view
-    //else currentCard++ assessmentState =
   }
 
   render() {
-    //todo verify logged in user has access to this deck
-    //todo load cards for deck
     return (
       <Section>
-        {/* begin temp block to remove ***************
-        <hr />
-        <h1>
-          TEMP: todo: Remove - get actual header to rerender with 'Logout' when
-          logged in
-        </h1>
-        <header className="App-header">
-          <Header />
-        </header>
-        <hr />
-        **************** end temp block*/}
         <h2>Self-Assessment for Deck: {this.state.deckName}</h2>{' '}
-        {/* todo add Deck name to title? */}
         <Section className="Assessment">{this.renderStateView()}</Section>
       </Section>
     );
