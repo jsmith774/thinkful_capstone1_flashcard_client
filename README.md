@@ -55,3 +55,7 @@ The Student will then check their work against the pre-recorded audio of the cor
 
 Selecting either "yes" or "no" will advance to the next Facedown card and the entire process continues. After answering the last card, a summary will show the number correct for the previous deck assessment and students can "Try Again" which will restart the current Deck or return to their Dashboard to select a different Deck.
 <img src="./README_Screenshots/Summary.png" width="450" alt="Assessment Summary Screenshot"/>
+
+## Tech
+
+The client side of this application is built using React in additional to standard JavaScript, HTML, and CSS, and makes RESTful API calls to access backend.
