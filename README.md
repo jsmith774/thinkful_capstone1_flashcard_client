@@ -6,7 +6,7 @@ This repo is client side of the CyberCard application. **NOTE: Requires API Serv
 
 ## Deployment
 
-- Live demo client running on <https://client-eta-cyan.vercel.app>
+- Live demo client running on <https://cybercard.vercel.app>
 
 - Live deployment of the API server being called by this demo is running at <https://dry-scrubland-36737.herokuapp.com>
 
